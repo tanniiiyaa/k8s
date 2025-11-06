@@ -1,0 +1,10 @@
+apiVersion: V1
+Kind: Pod
+Metadata:
+   name: my-podci
+spec: 
+  container: 
+     -name: my-podci
+     image: nginx:latest
+     ports:
+        - container: 80
