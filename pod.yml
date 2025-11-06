@@ -1,10 +1,10 @@
-apiVersion: V1
-Kind: Pod
-Metadata:
-   name: my-podci
-spec: 
-  container: 
-     -name: my-podci
-     image: nginx:latest
-     ports:
-        - container: 80
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-podci
+spec:
+  containers:
+    - name: my-podci
+      image: nginx:latest
+      ports:
+        - containerPort: 80
