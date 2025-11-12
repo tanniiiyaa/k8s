@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+ name: mage
+ labels: 
+   app: replicaset1
+spec:
+  selector:
+    matchExpressions:
+      - {key: app, operator: In, values: [replicaset1, replicaset2]}
+  replicas: 3
+  template:
+    metadata:
+      name: replicaset1
+      labels:
+        app: replicaset1
+    spec:
+      containers: 
+        - name: nginxcont1
+          image: nginx:latest
+          resources:
+            requests: 
+              cpu: "10m"
+              memory: "12Mi"
+          ports: 
+            - protocol: TCP
+              containerPort: 80
+              name: http  
