@@ -10,7 +10,6 @@ spec:
    rollingUpdate:
      maxSurge: 1
      maxUnavailable: 1
-   selector:
     # matchExpressions:
      # - {key: app, operator: In, values: [rsapp, dapp, nginx]}
      # - {key: app, operator: Exists}
