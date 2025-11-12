@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy
+  labels:
+    app: devapp
+spec:
+ strategy:
+   type: RollingUpdate 
+   rollingUpdate:
+     maxSurge: 1
+     maxUnavailable: 1
+   selector:
+    # matchExpressions:
+     # - {key: app, operator: In, values: [rsapp, dapp, nginx]}
+     # - {key: app, operator: Exists}
+     matchLabels:
+      app: devapp
+      replicas: 3
+      templates:
+        metadata:
+         labels:
+           name: nginxapp
+           app: devapp
+        spec: 
+         containers:
+          - name: nginxapp
+            image: httpd:latest
+            ports:
+              - containerPort: 80
+                protocol: TCP
