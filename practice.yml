@@ -5,17 +5,18 @@ metadata:
   labels:
     app: devapp
 spec:
- strategy:
-   type: RollingUpdate 
-   rollingUpdate:
-     maxSurge: 1
-     maxUnavailable: 1
-    # matchExpressions:
-     # - {key: app, operator: In, values: [rsapp, dapp, nginx]}
-     # - {key: app, operator: Exists}
-     matchLabels:
-      app: devapp
-      replicas: 3
+  strategy:
+    type: RollingUpdate 
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    selector:
+      matchExpressions:
+       - { key: app, operator: In, values: [rsapp, dapp, nginx]}
+       - { key: app, operator: Exists}
+      matchLabels:
+         app: devapp
+      replicas: 6
       templates:
         metadata:
          labels:
