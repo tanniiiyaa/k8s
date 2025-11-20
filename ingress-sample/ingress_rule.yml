@@ -3,4 +3,26 @@ kind: Ingress
 metadata:
    name: oneingress
    annotations:
-   
+      nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: 26F267516844ABEAE1600E16FC6CFD77.gr7.ap-northeast-1.eks.amazonaws.com
+      http:
+      paths:
+        
+
+        - path: /nginx
+          pathType: Prefix
+          backend: 
+            service: 
+              name: frontendsrv
+              port: 
+                number: 80
+        - path: /tomcat
+          pathType: Prefix
+          backend:
+            service:
+               name: backendsrv
+               port: 
+                 number: 8080
