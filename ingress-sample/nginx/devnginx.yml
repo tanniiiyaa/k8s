@@ -31,9 +31,8 @@ spec:
               cpu: "250m"
 
 ---
-
 apiVersion: autoscaling/v2
-kind: HoriontalPodAutoscaler
+kind: HorizontalPodAutoscaler
 metadata:
   name: hpa 
 spec:
