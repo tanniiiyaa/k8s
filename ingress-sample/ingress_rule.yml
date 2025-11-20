@@ -10,8 +10,7 @@ spec:
     - host: 26F267516844ABEAE1600E16FC6CFD77.gr7.ap-northeast-1.eks.amazonaws.com
       http:
       paths:
-        
-
+         
         - path: /nginx
           pathType: Prefix
           backend: 
